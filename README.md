@@ -1,2 +1,2 @@
 # discord_spam
-In-jokes are fun!
+Basically a giant meme.
