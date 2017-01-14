@@ -1,5 +1,7 @@
 # This is my love letter to dank memes.
 
+# Python 2 compatibility
+from six.moves import input
 
 def get_alphabet():
     """Get alphabet in accordance with meme standards."""
