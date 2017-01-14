@@ -1,36 +1,48 @@
 # This is my love letter to dank memes.
 
+# Python 2 compatibility
+from six.moves import input
 
 def get_alphabet():
     """Get alphabet in accordance with meme standards."""
-    alphabet = []
+    alphabet = {}
 
-    alphabet.append([[0, 1, 0], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]])  # A
-    alphabet.append([[1, 1, 0], [1, 0, 1], [1, 1, 0], [1, 0, 1], [1, 1, 0]])  # B
-    alphabet.append([[1, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]])  # C
-    alphabet.append([[1, 1, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 0]])  # D
-    alphabet.append([[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 0], [1, 1, 1]])  # E
-    alphabet.append([[1, 1, 1], [1, 0, 0], [1, 1, 0], [1, 0, 0], [1, 0, 0]])  # F
-    alphabet.append([[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 1], [1, 0, 0, 1], [1, 1, 1, 1]])  # G, 4 columns long.
-    alphabet.append([[1, 0, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]])  # H
-    alphabet.append([[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]])  # I
-    alphabet.append([[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 0, 1], [0, 1, 0]])  # J
-    alphabet.append([[1, 0, 0, 1], [1, 0, 1, 0], [1, 1, 0, 0], [1, 0, 1, 0], [1, 0, 0, 1]])  # K, 4 columns long.
-    alphabet.append([[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]])  # L
-    alphabet.append([[1, 0, 0, 0, 1], [1, 1, 0, 1, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 0, 0, 0, 1]])  # M, 5 columns long
-    alphabet.append([[1, 0, 0, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 0, 1, 1], [1, 0, 0, 1]])  # N, 4 columns long
-    alphabet.append([[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]])  # O
-    alphabet.append([[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 0], [1, 0, 0]])  # P
-    alphabet.append([[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1]])  # Q
-    alphabet.append([[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 1, 0], [1, 0, 1]])  # R
-    alphabet.append([[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]])  # S
-    alphabet.append([[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0]])  # T
-    alphabet.append([[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]])  # U
-    alphabet.append([[1, 0, 1], [1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0]])  # V
-    alphabet.append([[1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]])  # W, 5 columns long
-    alphabet.append([[1, 0, 1], [1, 0, 1], [0, 1, 0], [1, 0, 1], [1, 0, 1]])  # X
-    alphabet.append([[1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0]])  # Y
-    alphabet.append([[1, 1, 1], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]])  # Z
+    alphabet["A"] = [[0, 1, 0], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]]
+    alphabet["B"] = [[1, 1, 0], [1, 0, 1], [1, 1, 0], [1, 0, 1], [1, 1, 0]]
+    alphabet["C"] = [[1, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]]
+    alphabet["D"] = [[1, 1, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 0]]
+    alphabet["E"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 0], [1, 1, 1]]
+    alphabet["F"] = [[1, 1, 1], [1, 0, 0], [1, 1, 0], [1, 0, 0], [1, 0, 0]]
+    alphabet["G"] = [[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 1], [1, 0, 0, 1], [1, 1, 1, 1]]
+    alphabet["H"] = [[1, 0, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]]
+    alphabet["I"] = [[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]]
+    alphabet["J"] = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 0, 1], [0, 1, 0]]
+    alphabet["K"] = [[1, 0, 0, 1], [1, 0, 1, 0], [1, 1, 0, 0], [1, 0, 1, 0], [1, 0, 0, 1]]
+    alphabet["L"] = [[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]]
+    alphabet["M"] = [[1, 0, 0, 0, 1], [1, 1, 0, 1, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 0, 0, 0, 1]]
+    alphabet["N"] = [[1, 0, 0, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 0, 1, 1], [1, 0, 0, 1]]
+    alphabet["O"] = [[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]]
+    alphabet["P"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 0], [1, 0, 0]]
+    alphabet["Q"] = [[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1]]
+    alphabet["R"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 1, 0], [1, 0, 1]]
+    alphabet["S"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]]
+    alphabet["T"] = [[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    alphabet["U"] = [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]]
+    alphabet["V"] = [[1, 0, 1], [1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0]]
+    alphabet["W"] = [[1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]
+    alphabet["X"] = [[1, 0, 1], [1, 0, 1], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
+    alphabet["Y"] = [[1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    alphabet["Z"] = [[1, 1, 1], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
+    alphabet["1"] = [[1, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]]
+    alphabet["2"] = [[1, 1, 1], [0, 0, 1], [1, 1, 1], [1, 0, 0], [1, 1, 1]]
+    alphabet["3"] = [[1, 1, 1], [0, 0, 1], [0, 1, 1], [0, 0, 1], [1, 1, 1]]
+    alphabet["4"] = [[1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1]]
+    alphabet["5"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]]
+    alphabet["6"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 1], [1, 1, 1]]
+    alphabet["7"] = [[1, 1, 1], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0]]
+    alphabet["8"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 1, 1]]
+    alphabet["9"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1]]
+    alphabet["0"] = [[1, 1, 1, 1, 1], [1, 0, 0, 1, 1], [1, 0, 1, 0, 1], [1, 1, 0, 0, 1], [1, 1, 1, 1, 1]]
 
     return alphabet
 
@@ -44,11 +56,10 @@ def make_spam(spam, emote_letter, emote_filler):
     for row in range(0, 5):
         row_string = emote_filler + " "  # Sum of one row; start with filler
         for letter in spam:
-            letter_ascii = ord(letter) - 97  # ASCII value, minus 97
-            if letter_ascii < 0:  # Blank space (baby, and I'll write your name)
+            if letter is " ":  # Blank space (baby, and I'll write your name)
                 row_string += (emote_filler + " ")
                 continue
-            for unit in alphabet[letter_ascii][row]:
+            for unit in alphabet[letter.upper()][row]:
                 if unit:  # if unit is true (in other words, 1)
                     row_string += (emote_letter + " ")
                 else:  # 0
@@ -58,11 +69,11 @@ def make_spam(spam, emote_letter, emote_filler):
         copypasta.append(row_string)
 
     for row in range(0, 5):
-        print copypasta[row]
+        print(copypasta[row])
 
 
 if __name__ == "__main__":
-    spam = raw_input("What's your spam? ")
-    emote_letter = raw_input("What's the letter emote? ")
-    emote_filler = raw_input("What's the filler emote? ")
+    spam = input("What's your spam? ")
+    emote_letter = input("What's the letter emote? ")
+    emote_filler = input("What's the filler emote? ")
     make_spam(spam, emote_letter, emote_filler)
