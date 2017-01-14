@@ -57,11 +57,11 @@ def make_spam(spam, emote_letter, emote_filler):
         copypasta.append(row_string)
 
     for row in range(0, 5):
-        print copypasta[row]
+        print(copypasta[row])
 
 
 if __name__ == "__main__":
-    spam = raw_input("What's your spam? ")
-    emote_letter = raw_input("What's the letter emote? ")
-    emote_filler = raw_input("What's the filler emote? ")
+    spam = input("What's your spam? ")
+    emote_letter = input("What's the letter emote? ")
+    emote_filler = input("What's the filler emote? ")
     make_spam(spam, emote_letter, emote_filler)
