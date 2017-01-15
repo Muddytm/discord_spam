@@ -23,7 +23,7 @@ ALPHABET["A"] = [o + X + o,
                  X + o + X]
 ALPHABET["B"] = [X + X + o,
                  X + o + X,
-                 X + X + X,
+                 X + X + o,
                  X + o + X,
                  X + X + o]
 ALPHABET["C"] = [X + X + X,
