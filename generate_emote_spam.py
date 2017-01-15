@@ -3,66 +3,214 @@
 # Python 2 compatibility
 from six.moves import input
 
+# Shorthand for convenience
+X = "{letter}"
+o = "{filler}"
+
 ALPHABET = {}
-ALPHABET["A"] = [[0, 1, 0], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]]
-ALPHABET["B"] = [[1, 1, 0], [1, 0, 1], [1, 1, 0], [1, 0, 1], [1, 1, 0]]
-ALPHABET["C"] = [[1, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]]
-ALPHABET["D"] = [[1, 1, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 0]]
-ALPHABET["E"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 0], [1, 1, 1]]
-ALPHABET["F"] = [[1, 1, 1], [1, 0, 0], [1, 1, 0], [1, 0, 0], [1, 0, 0]]
-ALPHABET["G"] = [[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 1], [1, 0, 0, 1], [1, 1, 1, 1]]
-ALPHABET["H"] = [[1, 0, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]]
-ALPHABET["I"] = [[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]]
-ALPHABET["J"] = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 0, 1], [0, 1, 0]]
-ALPHABET["K"] = [[1, 0, 0, 1], [1, 0, 1, 0], [1, 1, 0, 0], [1, 0, 1, 0], [1, 0, 0, 1]]
-ALPHABET["L"] = [[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]]
-ALPHABET["M"] = [[1, 0, 0, 0, 1], [1, 1, 0, 1, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 0, 0, 0, 1]]
-ALPHABET["N"] = [[1, 0, 0, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 0, 1, 1], [1, 0, 0, 1]]
-ALPHABET["O"] = [[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]]
-ALPHABET["P"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 0], [1, 0, 0]]
-ALPHABET["Q"] = [[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1]]
-ALPHABET["R"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 1, 0], [1, 0, 1]]
-ALPHABET["S"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]]
-ALPHABET["T"] = [[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0]]
-ALPHABET["U"] = [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]]
-ALPHABET["V"] = [[1, 0, 1], [1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0]]
-ALPHABET["W"] = [[1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]
-ALPHABET["X"] = [[1, 0, 1], [1, 0, 1], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
-ALPHABET["Y"] = [[1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0]]
-ALPHABET["Z"] = [[1, 1, 1], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
-ALPHABET["1"] = [[1, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]]
-ALPHABET["2"] = [[1, 1, 1], [0, 0, 1], [1, 1, 1], [1, 0, 0], [1, 1, 1]]
-ALPHABET["3"] = [[1, 1, 1], [0, 0, 1], [0, 1, 1], [0, 0, 1], [1, 1, 1]]
-ALPHABET["4"] = [[1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1]]
-ALPHABET["5"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]]
-ALPHABET["6"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 1], [1, 1, 1]]
-ALPHABET["7"] = [[1, 1, 1], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0]]
-ALPHABET["8"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 1, 1]]
-ALPHABET["9"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1]]
-ALPHABET["0"] = [[1, 1, 1, 1, 1], [1, 0, 0, 1, 1], [1, 0, 1, 0, 1], [1, 1, 0, 0, 1], [1, 1, 1, 1, 1]]
+# Organized by how final output will look. ...alternative org isn't much better
+#    May want to look into an external font solution TBH
+# Beware, the " " char is also basically the padding
+ALPHABET[" "] = [o,
+                 o,
+                 o,
+                 o,
+                 o]
+ALPHABET["A"] = [o + X + o,
+                 X + o + X,
+                 X + X + X,
+                 X + o + X,
+                 X + o + X]
+ALPHABET["B"] = [X + X + o,
+                 X + o + X,
+                 X + X + X,
+                 X + o + X,
+                 X + X + o]
+ALPHABET["C"] = [X + X + X,
+                 X + o + o,
+                 X + o + o,
+                 X + o + o,
+                 X + X + X]
+ALPHABET["D"] = [X + X + o,
+                 X + o + X,
+                 X + o + X,
+                 X + o + X,
+                 X + X + o]
+ALPHABET["E"] = [X + X + X,
+                 X + o + o,
+                 X + X + X,
+                 X + o + o,
+                 X + X + X]
+ALPHABET["F"] = [X + X + X,
+                 X + o + o,
+                 X + X + o,
+                 X + o + o,
+                 X + o + o]
+ALPHABET["G"] = [X + X + X + X,
+                 X + o + o + o,
+                 X + o + X + X,
+                 X + o + o + X,
+                 X + X + X + X]
+ALPHABET["H"] = [X + o + X,
+                 X + o + X,
+                 X + X + X,
+                 X + o + X,
+                 X + o + X]
+ALPHABET["I"] = [X + X + X,
+                 o + X + o,
+                 o + X + o,
+                 o + X + o,
+                 X + X + X]
+ALPHABET["J"] = [o + o + X,
+                 o + o + X,
+                 o + o + X,
+                 X + o + X,
+                 o + X + o]
+ALPHABET["K"] = [X + o + o + X,
+                 X + o + X + o,
+                 X + X + o + o,
+                 X + o + X + o,
+                 X + o + o + X]
+ALPHABET["L"] = [X + o + o,
+                 X + o + o,
+                 X + o + o,
+                 X + o + o,
+                 X + X + X]
+ALPHABET["M"] = [X + o + o + o + X,
+                 X + X + o + X + X,
+                 X + o + X + o + X,
+                 X + o + o + o + X,
+                 X + o + o + o + X]
+ALPHABET["N"] = [X + o + o + X,
+                 X + o + o + X,
+                 X + X + o + X,
+                 X + o + X + X,
+                 X + o + o + X]
+ALPHABET["O"] = [X + X + X,
+                 X + o + X,
+                 X + o + X,
+                 X + o + X,
+                 X + X + X]
+ALPHABET["P"] = [X + X + X,
+                 X + o + X,
+                 X + X + X,
+                 X + o + o,
+                 X + o + o]
+ALPHABET["Q"] = [X + X + X,
+                 X + o + X,
+                 X + o + X,
+                 X + X + X,
+                 o + o + X]
+ALPHABET["R"] = [X + X + X,
+                 X + o + X,
+                 X + X + X,
+                 X + X + o,
+                 X + o + X]
+ALPHABET["S"] = [X + X + X,
+                 X + o + o,
+                 X + X + X,
+                 o + o + X,
+                 X + X + X]
+ALPHABET["T"] = [X + X + X,
+                 o + X + o,
+                 o + X + o,
+                 o + X + o,
+                 o + X + o]
+ALPHABET["U"] = [X + o + X,
+                 X + o + X,
+                 X + o + X,
+                 X + o + X,
+                 X + X + X]
+ALPHABET["V"] = [X + o + X,
+                 X + o + X,
+                 X + o + X,
+                 o + X + o,
+                 o + X + o]
+ALPHABET["W"] = [X + o + o + o + X,
+                 X + o + X + o + X,
+                 X + o + X + o + X,
+                 X + o + X + o + X,
+                 o + X + o + X + o]
+ALPHABET["X"] = [X + o + X,
+                 X + o + X,
+                 o + X + o,
+                 X + o + X,
+                 X + o + X]
+ALPHABET["Y"] = [X + o + X,
+                 X + o + X,
+                 o + X + o,
+                 o + X + o,
+                 o + X + o]
+ALPHABET["Z"] = [X + X + X,
+                 o + o + X,
+                 o + X + o,
+                 X + o + o,
+                 X + X + X]
+ALPHABET["1"] = [X + X + o,
+                 o + X + o,
+                 o + X + o,
+                 o + X + o,
+                 X + X + X]
+ALPHABET["2"] = [X + X + X,
+                 o + o + X,
+                 X + X + X,
+                 X + o + o,
+                 X + X + X]
+ALPHABET["3"] = [X + X + X,
+                 o + o + X,
+                 o + X + X,
+                 o + o + X,
+                 X + X + X]
+ALPHABET["4"] = [X + o + X,
+                 X + o + X,
+                 X + X + X,
+                 o + o + X,
+                 o + o + X]
+ALPHABET["5"] = [X + X + X,
+                 X + o + o,
+                 X + X + X,
+                 o + o + X,
+                 X + X + X]
+ALPHABET["6"] = [X + X + X,
+                 X + o + o,
+                 X + X + X,
+                 X + o + X,
+                 X + X + X]
+ALPHABET["7"] = [X + X + X,
+                 o + o + X,
+                 o + o + X,
+                 o + X + o,
+                 o + X + o]
+ALPHABET["8"] = [X + X + X,
+                 X + o + X,
+                 X + X + X,
+                 X + o + X,
+                 X + X + X]
+ALPHABET["9"] = [X + X + X,
+                 X + o + X,
+                 X + X + X,
+                 o + o + X,
+                 o + o + X]
+ALPHABET["0"] = [X + X + X + X + X,
+                 X + o + o + X + X,
+                 X + o + X + o + X,
+                 X + X + o + o + X,
+                 X + X + X + X + X]
+
 
 def make_spam(spam, emote_letter, emote_filler):
-    """Generate memes!"""
+    """Generate 5-row-tall memes!"""
 
-    copypasta = []
+    copypasta = [""] * 5  # Initialize row strings
 
-    for row in range(0, 5):
-        row_string = emote_filler + " "  # Sum of one row; start with filler
-        for letter in spam:
-            if letter is " ":  # Blank space (baby, and I'll write your name)
-                row_string += (emote_filler + " ")
-                continue
-            for unit in ALPHABET[letter.upper()][row]:
-                if unit:  # if unit is true (in other words, 1)
-                    row_string += (emote_letter + " ")
-                else:  # 0
-                    row_string += (emote_filler + " ")
-            row_string += (emote_filler + " ")
-        row_string += emote_filler
-        copypasta.append(row_string)
+    for letter in spam:
+        block_letter = ALPHABET[letter.upper()]
+        for row in range(0, 5):  # Put letter into copypasta row-wise
+            copypasta[row] += o + block_letter[row]  # Pad left of letter
 
     for row in range(0, 5):
-        print(copypasta[row])
+        copypasta[row] += o  # Pad end of string
+        print(copypasta[row].format(letter=emote_letter, filler=emote_filler))
 
 
 if __name__ == "__main__":
