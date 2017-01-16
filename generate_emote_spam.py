@@ -3,73 +3,222 @@
 # Python 2 compatibility
 from six.moves import input
 
+# Shorthand for convenience
+X = "{letter}"
+o = "{filler}"
+
+
 def get_alphabet():
     """Get alphabet in accordance with meme standards."""
-    alphabet = {}
 
-    alphabet["A"] = [[0, 1, 0], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]]
-    alphabet["B"] = [[1, 1, 0], [1, 0, 1], [1, 1, 0], [1, 0, 1], [1, 1, 0]]
-    alphabet["C"] = [[1, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]]
-    alphabet["D"] = [[1, 1, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 0]]
-    alphabet["E"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 0], [1, 1, 1]]
-    alphabet["F"] = [[1, 1, 1], [1, 0, 0], [1, 1, 0], [1, 0, 0], [1, 0, 0]]
-    alphabet["G"] = [[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 1], [1, 0, 0, 1], [1, 1, 1, 1]]
-    alphabet["H"] = [[1, 0, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 0, 1]]
-    alphabet["I"] = [[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]]
-    alphabet["J"] = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 0, 1], [0, 1, 0]]
-    alphabet["K"] = [[1, 0, 0, 1], [1, 0, 1, 0], [1, 1, 0, 0], [1, 0, 1, 0], [1, 0, 0, 1]]
-    alphabet["L"] = [[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 1, 1]]
-    alphabet["M"] = [[1, 0, 0, 0, 1], [1, 1, 0, 1, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 0, 0, 0, 1]]
-    alphabet["N"] = [[1, 0, 0, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 0, 1, 1], [1, 0, 0, 1]]
-    alphabet["O"] = [[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]]
-    alphabet["P"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 0], [1, 0, 0]]
-    alphabet["Q"] = [[1, 1, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1]]
-    alphabet["R"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 1, 0], [1, 0, 1]]
-    alphabet["S"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]]
-    alphabet["T"] = [[1, 1, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0]]
-    alphabet["U"] = [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 1]]
-    alphabet["V"] = [[1, 0, 1], [1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0]]
-    alphabet["W"] = [[1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]
-    alphabet["X"] = [[1, 0, 1], [1, 0, 1], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
-    alphabet["Y"] = [[1, 0, 1], [1, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0]]
-    alphabet["Z"] = [[1, 1, 1], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
-    alphabet["1"] = [[1, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 1, 1]]
-    alphabet["2"] = [[1, 1, 1], [0, 0, 1], [1, 1, 1], [1, 0, 0], [1, 1, 1]]
-    alphabet["3"] = [[1, 1, 1], [0, 0, 1], [0, 1, 1], [0, 0, 1], [1, 1, 1]]
-    alphabet["4"] = [[1, 0, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1]]
-    alphabet["5"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [0, 0, 1], [1, 1, 1]]
-    alphabet["6"] = [[1, 1, 1], [1, 0, 0], [1, 1, 1], [1, 0, 1], [1, 1, 1]]
-    alphabet["7"] = [[1, 1, 1], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0]]
-    alphabet["8"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 1], [1, 1, 1]]
-    alphabet["9"] = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [0, 0, 1], [0, 0, 1]]
-    alphabet["0"] = [[1, 1, 1, 1, 1], [1, 0, 0, 1, 1], [1, 0, 1, 0, 1], [1, 1, 0, 0, 1], [1, 1, 1, 1, 1]]
+    alphabet = {}
+    # Organized by how final output will look. ...alternative org isn't much better
+    #    May want to look into an external font solution TBH
+    # Beware, the " " char is also basically the padding
+    alphabet[" "] = [o,
+                     o,
+                     o,
+                     o,
+                     o]
+    alphabet["A"] = [o + X + o,
+                     X + o + X,
+                     X + X + X,
+                     X + o + X,
+                     X + o + X]
+    alphabet["B"] = [X + X + o,
+                     X + o + X,
+                     X + X + o,
+                     X + o + X,
+                     X + X + o]
+    alphabet["C"] = [X + X + X,
+                     X + o + o,
+                     X + o + o,
+                     X + o + o,
+                     X + X + X]
+    alphabet["D"] = [X + X + o,
+                     X + o + X,
+                     X + o + X,
+                     X + o + X,
+                     X + X + o]
+    alphabet["E"] = [X + X + X,
+                     X + o + o,
+                     X + X + X,
+                     X + o + o,
+                     X + X + X]
+    alphabet["F"] = [X + X + X,
+                     X + o + o,
+                     X + X + o,
+                     X + o + o,
+                     X + o + o]
+    alphabet["G"] = [X + X + X + X,
+                     X + o + o + o,
+                     X + o + X + X,
+                     X + o + o + X,
+                     X + X + X + X]
+    alphabet["H"] = [X + o + X,
+                     X + o + X,
+                     X + X + X,
+                     X + o + X,
+                     X + o + X]
+    alphabet["I"] = [X + X + X,
+                     o + X + o,
+                     o + X + o,
+                     o + X + o,
+                     X + X + X]
+    alphabet["J"] = [o + o + X,
+                     o + o + X,
+                     o + o + X,
+                     X + o + X,
+                     o + X + o]
+    alphabet["K"] = [X + o + o + X,
+                     X + o + X + o,
+                     X + X + o + o,
+                     X + o + X + o,
+                     X + o + o + X]
+    alphabet["L"] = [X + o + o,
+                     X + o + o,
+                     X + o + o,
+                     X + o + o,
+                     X + X + X]
+    alphabet["M"] = [X + o + o + o + X,
+                     X + X + o + X + X,
+                     X + o + X + o + X,
+                     X + o + o + o + X,
+                     X + o + o + o + X]
+    alphabet["N"] = [X + o + o + X,
+                     X + o + o + X,
+                     X + X + o + X,
+                     X + o + X + X,
+                     X + o + o + X]
+    alphabet["O"] = [X + X + X,
+                     X + o + X,
+                     X + o + X,
+                     X + o + X,
+                     X + X + X]
+    alphabet["P"] = [X + X + X,
+                     X + o + X,
+                     X + X + X,
+                     X + o + o,
+                     X + o + o]
+    alphabet["Q"] = [X + X + X,
+                     X + o + X,
+                     X + o + X,
+                     X + X + X,
+                     o + o + X]
+    alphabet["R"] = [X + X + X,
+                     X + o + X,
+                     X + X + X,
+                     X + X + o,
+                     X + o + X]
+    alphabet["S"] = [X + X + X,
+                     X + o + o,
+                     X + X + X,
+                     o + o + X,
+                     X + X + X]
+    alphabet["T"] = [X + X + X,
+                     o + X + o,
+                     o + X + o,
+                     o + X + o,
+                     o + X + o]
+    alphabet["U"] = [X + o + X,
+                     X + o + X,
+                     X + o + X,
+                     X + o + X,
+                     X + X + X]
+    alphabet["V"] = [X + o + X,
+                     X + o + X,
+                     X + o + X,
+                     o + X + o,
+                     o + X + o]
+    alphabet["W"] = [X + o + o + o + X,
+                     X + o + X + o + X,
+                     X + o + X + o + X,
+                     X + o + X + o + X,
+                     o + X + o + X + o]
+    alphabet["X"] = [X + o + X,
+                     X + o + X,
+                     o + X + o,
+                     X + o + X,
+                     X + o + X]
+    alphabet["Y"] = [X + o + X,
+                     X + o + X,
+                     o + X + o,
+                     o + X + o,
+                     o + X + o]
+    alphabet["Z"] = [X + X + X,
+                     o + o + X,
+                     o + X + o,
+                     X + o + o,
+                     X + X + X]
+    alphabet["1"] = [X + X + o,
+                     o + X + o,
+                     o + X + o,
+                     o + X + o,
+                     X + X + X]
+    alphabet["2"] = [X + X + X,
+                     o + o + X,
+                     X + X + X,
+                     X + o + o,
+                     X + X + X]
+    alphabet["3"] = [X + X + X,
+                     o + o + X,
+                     o + X + X,
+                     o + o + X,
+                     X + X + X]
+    alphabet["4"] = [X + o + X,
+                     X + o + X,
+                     X + X + X,
+                     o + o + X,
+                     o + o + X]
+    alphabet["5"] = [X + X + X,
+                     X + o + o,
+                     X + X + X,
+                     o + o + X,
+                     X + X + X]
+    alphabet["6"] = [X + X + X,
+                     X + o + o,
+                     X + X + X,
+                     X + o + X,
+                     X + X + X]
+    alphabet["7"] = [X + X + X,
+                     o + o + X,
+                     o + o + X,
+                     o + X + o,
+                     o + X + o]
+    alphabet["8"] = [X + X + X,
+                     X + o + X,
+                     X + X + X,
+                     X + o + X,
+                     X + X + X]
+    alphabet["9"] = [X + X + X,
+                     X + o + X,
+                     X + X + X,
+                     o + o + X,
+                     o + o + X]
+    alphabet["0"] = [X + X + X + X + X,
+                     X + o + o + X + X,
+                     X + o + X + o + X,
+                     X + X + o + o + X,
+                     X + X + X + X + X]
 
     return alphabet
 
 
 def make_spam(spam, emote_letter, emote_filler):
-    """Generate memes!"""
-    alphabet = get_alphabet()
+    """Generate 5-row-tall memes!"""
 
-    copypasta = []
+    block_font = get_alphabet()
 
-    for row in range(0, 5):
-        row_string = emote_filler + " "  # Sum of one row; start with filler
-        for letter in spam:
-            if letter is " ":  # Blank space (baby, and I'll write your name)
-                row_string += (emote_filler + " ")
-                continue
-            for unit in alphabet[letter.upper()][row]:
-                if unit:  # if unit is true (in other words, 1)
-                    row_string += (emote_letter + " ")
-                else:  # 0
-                    row_string += (emote_filler + " ")
-            row_string += (emote_filler + " ")
-        row_string += emote_filler
-        copypasta.append(row_string)
+    copypasta = [""] * 5  # Initialize row strings
+
+    for letter in spam:
+        block_letter = block_font[letter.upper()]
+        for row in range(0, 5):  # Put letter into copypasta row-wise
+            copypasta[row] += o + block_letter[row]  # Pad left of letter
 
     for row in range(0, 5):
-        print(copypasta[row])
+        copypasta[row] += o  # Pad end of string
+        print(copypasta[row].format(letter=emote_letter, filler=emote_filler))
 
 
 if __name__ == "__main__":
